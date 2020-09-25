@@ -49,6 +49,8 @@ https://htl-leonding-college.github.io/syp-itp-lecture-notes/sypitp4.html
 
 === Architektur von db-basierten Projekten
 
+image:architecture-projects.jpg[]
+
 === Projekte
 
 * Europäische Urwaldroute
