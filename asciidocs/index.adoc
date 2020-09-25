@@ -1,4 +1,4 @@
-= My Project
+= Lecture Notes 4ahitm ITP 20/21
 firstname lastname
 1.1.0, yyyy-mm-dd: Some notes
 ifndef::imagesdir[:imagesdir: images]
@@ -20,10 +20,113 @@ endif::backend-html5[]
 // print the toc here (not at the default position)
 //toc::[]
 
+
+<<students.adoc#, students notes>>
+
+== Fragen
+
+* Warum bezeichnet man Scrum und ähnliche Vorgehensmodelle als agil?
++
+.Antwort
+[%collapsible]
+====
+* Durch die kleinteilige Erstellung des Softwaresystems, kann man auf geänderte Rahmenbedingungen im Projektverlauf reagieren.
+* Die Funktionalität von Individualsoftware kann früh(er) beurteilt werden. zB besonders wichtig bei Erweiterung von bestehenden (komplizierten) Systemen
+====
+
+* Unterschied FA - NFA + Beispiele
+
+== What to do
+
+* [x] Projektthema bestimmen
+* [ ] Pflichtenheft erstellen
+
 == 2020-09-24
 
-=== Architekur von db-basierten Projekten
+=== Anforderungen an Projekte / Curriculum
 
+https://htl-leonding-college.github.io/syp-itp-lecture-notes/sypitp4.html
 
+=== Architektur von db-basierten Projekten
 
+=== Projekte
 
+* Europäische Urwaldroute
+** Moser
+** Kalinke
+** Ratzenböck
+* Leonie
+** Dorfinger
+** Scholl
+** Wiesinger
+** Weißengruber
+** Starka
+* Rocketman -> Prof. B. Ernecker
+** Feichtinger
+** Dumfarth
+* link:resources/duennschichtchromatogramm.pdf[Dünnschichtchromatogramm, window="_blank"] -> Prof. B. Ernecker
+** n/a
+* School-IoT "The appealing classroom"
+** Oirer
+** Edlinger
+** Ecker
+* LeoSchool -> derzeit Diplomarbeit
+** LeoDatabaseLearner
+*** Primetzhofer
+*** Turner
+*** Steigersdorfer
+** LeoSurvey
+** LeoCode
+* LeoTurnier
+** Mandel
+** Tran
+** Tang
+* DigitalSignage - On-Demand Videos
+** Besic
+** Fitzinger
+** Höfler
+* DigitalSignage - AlertMessenger
+** Knogler
+** Klausner
+* openMower-Projekt
+
+.Project School-Iot Details
+[%collapsible]
+====
+
+* Analyse des Istzustandes
+* Erstellung des Gesamtkonzepts
+* Detaillierung des Projektumfangs
+* ...
+====
+
+.Project DigitalSignage Details
+[%collapsible]
+====
+
+[plantuml,digsignage,png]
+----
+@startuml
+node ds_cms
+node server
+node keycloak
+node angular_client
+ds_cms -right0)- server : rest
+server -right0)- angular_client : rest
+@enduml
+----
+
+* ds_cms: Digital Signage Server mit Restful Endpoint
+* server: quarkus (ev. nodejs) bereitet die REST-Endpoints für den Angular Client vor
+* angular_client:
+** *On-Demand Video*: Berechtigte Personen können aus einer Video-Library auf beliebigen Screens
+Videos abspielen. Das momentane Programm wird überblendet.
+** *AlertMessenger* Berechtigte Personen (Sekretariat, AV, Dir, Schulwart) können (wichtige) Nachrichten
+auf beliebigen Screens für eine beliebige Zeitdauer (jjjj-mm-dd hh:mm VON - BIS). Die Nachricht kann in
+einem online HTML-Editor formatiert werden. Automatisch wird darunter klein angegeben, wer die Nachricht geschalten hat.
+
+====
+
+=== Unterricht
+
+* Foliensatz 01_Vorgehensmodelle begonnen (bis V-Modell)
