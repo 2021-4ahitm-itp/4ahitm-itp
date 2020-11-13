@@ -1,0 +1,9 @@
+@startuml
+node backend
+node frontend {
+  frame 3dmodel
+  frame webclient
+}
+frame androidclient
+node mqtt
+@enduml

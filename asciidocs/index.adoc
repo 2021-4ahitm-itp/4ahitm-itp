@@ -53,45 +53,49 @@ image:architecture-projects.jpg[]
 
 === Projekte
 
+[%collapsible]
+====
 * Europäische Urwaldroute
-** Moser
-** Kalinke
-** Ratzenböck
+** Adrian
+** Silvio
+** Jakob m/4
 * Leonie
-** Dorfinger
-** Scholl
-** Wiesinger
-** Weißengruber
-** Starka
+** Jonas littleCity
+** Basti Langhaar
+** Jonas Nr 3
+** Nina
+** der Bär
 * Rocketman -> Prof. B. Ernecker
-** Feichtinger
-** Dumfarth
+** Sarah mit Haube
+** Synchronsprecher
 * link:resources/duennschichtchromatogramm.pdf[Dünnschichtchromatogramm, window="_blank"] -> Prof. B. Ernecker
 ** n/a
 * School-IoT "The appealing classroom"
-** Oirer
-** Edlinger
-** Ecker
+** Jonas Känga
+** Phil
+** Quirinus
 * LeoSchool -> derzeit Diplomarbeit
 ** LeoDatabaseLearner
-*** Primetzhofer
-*** Turner
-*** Steigersdorfer
+*** Primerl
+*** Isabel
+*** Marah
 ** LeoSurvey
 ** LeoCode
 * LeoTurnier
-** Mandel
-** Tran
-** Tang
+** Rosi
+** Kelly
+** Sandy
 * DigitalSignage - On-Demand Videos
-** Besic
-** Fitzinger
-** Höfler
+** Meris
+** Airy Jakob
+** Blondie123
 * DigitalSignage - AlertMessenger
-** Knogler
-** Klausner
+** 11 Simon Langhaar
+** Florian aus St. Florian
 * openMower-Projekt
+====
 
+[[project-details]]
 .Project School-Iot Details
 [%collapsible]
 ====
@@ -101,6 +105,7 @@ image:architecture-projects.jpg[]
 * Detaillierung des Projektumfangs
 * ...
 ====
+
 
 .Project DigitalSignage Details
 [%collapsible]
@@ -132,3 +137,337 @@ einem online HTML-Editor formatiert werden. Automatisch wird darunter klein ange
 === Unterricht
 
 * Foliensatz 01_Vorgehensmodelle begonnen (bis V-Modell)
+
+=== Projekte
+
+==== Project Proposal (Projektantrag)
+
+== 2020-10-09
+
+=== Git Grundlagen
+
+
+
+
+
+
+== Feedback Projektauftrag
+
+=== Digital Signage
+
+* Beim Projekt ist das `out`-Verzeichnis im Repo eingecheckt
+** `out` ist das Gegenstück zu `target` nur für Ant -> maven ist obligatorisch!
+** `out` wurde generiert und darf NICHT in ein Repo eingcheckt werden !!!
+
+
+==== ad Problemstellung
+
+****
+Es wird im Zuge eines ITP - Projekts eine Oberfläche für einen Touchscreen
+erstellt, bei dem es aber keine Möglichkeit gibt den Inhalt auf einem Smartphone
+zu verwalten.
+****
+
+** Habt Ihr jetzt ein anderes Projekt?
+** Diese Problemstellung kenne ich nicht
+** Welcher Touchscreen?
+
+IMPORTANT: Bei der Problemstellung darf die Lösung nicht enthalten sein.
+
+==== ad Aufgabenstellung
+
+****
+In Kooperation mit dem anderen DigitalSignage Team wird das Backend
+für unsere Anwendungen programmiert.
+Unser Team erstellt zusätzlich noch eine Swift - Applikation von der aus
+die ganze Oberfläche des Touchscreens verwaltet werden kann.
+****
+
+* Bis jetzt, weiß man noch nicht was das Problem ist,
+* was eigentlich erstellt werden soll,
+* aber es wird auf ein ominöses zweites Team verwiesen (das es wahrscheinlich gar nicht mehr gibt)
+* Es wird ein Swift Anwendung zusätzlich zu was programmiert?
+
+==== ad Funktionalität
+
+****
+Ein Benutzer kann sich auf der Applikation einloggen.
+
+Berechtigte Benutzer können dann von der App aus den Inhalt der Oberfläche
+"ferngesteuert" verwalten. (Videos abspielen, pausieren, etc.)
+****
+
+* Einloggen ist kein Use-Case
+* Der zweite Use-Case ist ok
+
+
+==== Restliche Kapitel
+
+* Sind leer
+* Besonders das Projektergebnis wäre wichtig (wurde bereits in der Problemstellung erstellt)
+* Eure Projektphasen sind ebenfalls hochinteressant
+** Aufbau eines lokalen Xibo-Servers
+** Lernen der Grundfunktionen von Xibo
+** Marktanalyse
+*** Welche Möglichkeiten zur Authentifizierung gibt es?
+** Analyse der Xibo-Rest-Schnittstelle
+*** Erster Zugriff auf Xibo mittels Insomnia oder Postman
+*** Erstellen eines ersten einfachen Quarkus-Prototypen
+** ...
+
+IMPORTANT: Leider wird im Repo (rechts oben) oder im README.md nicht der URL der gh-pages angegeben
+
+https://2021-4ahitm-itp.github.io/01-project-proposal-digitalsignage-application/
+
+IMPORTANT: Eure Klarnamen müssen / sollten nicht im Internet publiziert werden
+
+
+[WARNING]
+.Folgende Fragen müssen beantwortet werden:
+====
+* Wieso hat nur ein Teamitglied committed?
+* Ist das Projektteam überfordert (-> Ja)
+* Sollte das Projektteam nicht besser ein einfacheres Thema nehmen?
+* Sollte man das Projektteam nicht auf andere Teams aufteilen?
+====
+
+
+==== Beurteilung
+
+* Obwohl in diesem Dokument weiter oben (<<project-details>>) das Projekt bereits besprochen wurde, ist dies das Ergebnis
+
+-> ngd (5)
+
+
+
+
+
+
+
+=== European Primeval Forest Route
+
+==== Allgemeine Anmerkungen
+
+* keine generierten Verzeichnisse comitten
+** `.asciidoctor` wurde eingecheckt
+** nicht einfach "alles" comitten !!!
+
+* Es gibt zwei Branches für die gh-pages
+** doc
+** gh-pages
+** In den https://2021-4ahitm-itp.github.io/01-project-proposal-european-primeval-forest-route/[gh-pages] wird nichts angezeigt
+
+* Man muss im Projekt das File mit dem Projektauftrag erst suchen
+** das ist auch der Grund, warum man in den gh-pages "nichts" findet (das Unter-Unterverzeichnis wird nicht gerendert)
+** Das ganze Projekt ist "Kraut und Rüben"
+
+image:forest-directory-structure.png[]
+
+* Rechtschreibfehler
+
+==== ad Problemstellung
+
+****
+In der Vergangenheit kam es öfters vor, dass durch motivierte Wanderer die Vegetation verschmutzt und zerstört wurde,
+indem sie unmakierte/unoffizielle Wege nahmen.
+Um die Tiere und Organismen in solchen Gebieten in Zukunft zu schützen wird eine Software entwickelt.
+****
+
+IMPORTANT: In der Problemstellung hat die Lösung nichts verloren.
+
+==== ad Was kann das Softwareprodukt nicht?
+
+****
+.Was soll das bedeuten?
+image:forest-01.png[]
+****
+
+==== ad Projektphasen
+
+
+****
+.zuwenige Phasen angeführt - das gesamte Projekt sollte geplant werden
+image:forest-02.png[]
+****
+
+==== Projektstart und Projektende
+
+* Die könnte man schätzen
+
+==== Projektresourcen
+
+****
+image:forest-03.png[]
+****
+
+* Warum will jedes Projekt einen Swift Client erstellen?
+
+
+==== Beurteilung
+
+* Man kann sich gut vorstellen, was zu tun ist
+* es fehlen ganze Kapitel (Ziele, ...)
+* Das Projekt ist in einem nicht-verwendbaren Zustand
+* -> gen(4)
+
+
+
+
+
+
+=== OnDemand
+
+==== Allgemeines
+
+* Der Link zu den gh-pages in README.md vorhanden
+* Warum hat nur eine Person committed?
+* Warum gibt es einen Ordner "Organise"
+
+==== ad PRoblemstellung
+
+* Vermischung mit Ausgangssituation
+
+==== ad Aufgabenstellung
+
+****
+.sehr abstrakt - könnte und sollte konkreter sein
+image:demand-01.png[]
+****
+
+==== ad Projektphasen
+
+* tw. ok, jedoch ungenügende Präzisierung (Welches System ist kennzulernen)
+* sehr optimistisch
+* vergleiche die Kommentare des anderen Projekts
+
+==== ad Projetstart und Projektende
+
+****
+.Da sollten wohl Kalenderdaten stehen
+image:demand-02.png[]
+****
+
+
+==== Beurteilung
+
+* Man kann sich vorstellen, was das Ergebnis ist
+* sogar messbare Eigenschaften
+* Man hat das Gefühl die beteiligten PErsonen haben sich was überlegt
+
+-> bef(3)
+
+
+
+
+
+=== Rocketman
+
+n/a
+
+
+
+
+
+=== School-IoT
+
+==== Allgemeines
+
+* Links zu gh-pages in README.md vorhanden
+* keine Klarnamen im Internet
+
+==== ad Background
+
+* naja
+
+==== Beurteilung
+
+* Man kann sich überhaupt nicht vorstellen, ...
+** ... um was es geht?
+** ... was bereits vorhanden ist (Sonsorbox und Vorgängerprojekt)
+** ... Das damit die Qualität in den Klassen (Luftqualität) verbessert werden soll;
+die Schüler werden leistungsfähiger
+* Das Architekturdiagramm ist toll
+** jedoch nicht mit Plantuml erstellt
+** und trotzdem schaffen es die die Pfeile nicht korrekt wo hinzuzeigen
+* Obwohl in diesem Dokument weiter oben (<<project-details>>) das Projekt bereits besprochen wurde, ist dies das Ergebnis
+
+-> ndg(5)
+
+
+
+
+
+=== Tournament
+
+==== Allgemeines
+
+image:tournament-01.png[]
+
+* Warum ist im git-repo wieder ein Unterverzeichnis
+* das repo hat kein README.md
+* das generierte Verzeichnis `.asciidoctor` ist ins repo eingecheckt
+* Euer Projektauftrag hat den Titel "My Project" und ist ein Mischmasch mit meinem Pflichtenheft-Template
+* Den Projektauftrag habt ihr Projektantrag genannt
+* Rechtschreibfehler
+* keine Klarnamen im Web
+
+==== Inhaltlich
+
+* Projektphasen entsprechen dem Projekt der dritten Klasse
+* eigentlich ziemlich ok, ist aber nicht überraschend, da es das Gleiche vom Vorjahr ist
+
+-> gen(4)
+
+=== Konsequenzen
+
+* Ein neues Repo für das Pflichtenheft ist von allen Teams zu erstellen
+
+
+== 2020-11-13
+
+=== Semantic Versioning
+
+* https://semver.org/lang/de/
+
+* Versions-Nr zB 1.2.5
+* Struktur: MAJOR.MINOR.PATCH
+** MAJOR: Neue Version, die nicht kompatibel mit den Vorgängerversionen ist +
+Die API "bricht"
+** MINOR: Neue Version mit neuen Features, die kompatibel mit Vorgängerversionen ist
+** PATCH: Neue Version, *KEINE* neuen Features, nur Bug-Fixes (Fehlerbehebungen)
+* Erweiterungen zB mit Build Nr: zB 1.2.5.1212423
+
+=== DOM -- Domain Object
+
+* D ... Fachbereich
+* O ... Object
+* M ... Model
+
+-> Fachbereichsobjektmodell
+
+* Beispiele:
+** Hausarzt -> Patient, Diagnose, Fall, ...
+** Handel -> Produkt, Kunde, Rechnung, Mahnung, Lieferung
+** ...
+
+* *Keine* technischen Klassen
+* vergleichbar mit einem ERD (Entity-Relationship-Diagram)
+
+=== Mögliche Vorgehensweise
+
+image:how-to-begin.png[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
