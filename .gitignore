@@ -1,3 +1,9 @@
+db/
+.DS_Store
+
+*.iml
+.idea/
+
 build-docs-html/
 build-docs-pdf/
 build-docs-revealjs/

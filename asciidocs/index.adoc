@@ -432,12 +432,12 @@ image:tournament-01.png[]
 * Versions-Nr zB 1.2.5
 * Struktur: MAJOR.MINOR.PATCH
 ** MAJOR: Neue Version, die nicht kompatibel mit den Vorgängerversionen ist +
-Die API "bricht"
+Die API "bricht", neue Features
 ** MINOR: Neue Version mit neuen Features, die kompatibel mit Vorgängerversionen ist
 ** PATCH: Neue Version, *KEINE* neuen Features, nur Bug-Fixes (Fehlerbehebungen)
 * Erweiterungen zB mit Build Nr: zB 1.2.5.1212423
 
-=== DOM -- Domain Object
+=== DOM -- Domain Object Modell
 
 * D ... Fachbereich
 * O ... Object
@@ -452,22 +452,205 @@ Die API "bricht"
 
 * *Keine* technischen Klassen
 * vergleichbar mit einem ERD (Entity-Relationship-Diagram)
+* wird zB in einer SysSpec (Pflichtenheft) verwendet
+* Man kann mit dem Kunden über seine Geschäftsobjekte sprechen.
 
 === Mögliche Vorgehensweise
 
 image:how-to-begin.png[]
 
 
+== 2020-11-20
+
+=== Frage
+
+[source,java]
+----
+class VehicleTest {
+
+    @Test
+    void createVehicle() {
+        Vehicle commodore = new Vehicle("Opel", "Commodore", 100.0);
+        assertThat(commodore.getBrand()).isEqualTo("Opel");
+    }
+}
+----
+
+* Frage:
+** Ist bei diesem Test ein @QuarkusTest notwendig?
+** Begründen Sie Ihre Antwort
+
+* Antwort:
+** Es ist ein einfacher Unit-Test einer Klasse.
+** Dabei sind keine Abhängigkeiten notwendig.
+** Man injiziert nicht (es gibt kein @Inject)
+
+
+== 2020-12-04
+
+=== Arten von Zielen
+
+image:leistungsziele.png[]
+
+* Zielarten
+** Wirkungssziele
+** Ergebnisziele
+** Prozessziele
+
+https://www.wirkung-lernen.de/wirkung-planen/ziele/erarbeiten/
+
+image:vmodell.png[]
+
+
+=== Behaviour Driven Design - BDD (Karate & Gherkin)
+
+https://de.wikipedia.org/wiki/Behavior_Driven_Development
+
+---
+
+.Arten der Softwareentwicklung
+* *klassisches Vorgehen*
+** Erstellen eines detaillierten Pflichtenheftes für das ganze Projekt
+** Vorgehensmodelle: Wasserfallmodell / V-Modell
+** Dokumente: Pflichtenheft (WAS), Entwurf (WIE), Projekthandbuch (ORGANISATION)
+** Implementieren des gesamten Projekts
+** Ausliefern des gesamten Projekts (Big Bang)
+* *agile Vorgehen*
+** das gesamte Projekt wird zunächst nur grob umrissen
+** Vorgehensmodelle: Scrum, Kanban
+** Scrum: Epics und Userstories
+*** immer die nächsten User Stories werden detailliert mit Tasks beschrieben ...
+*** ... und anschließend implementiert, getestet und an den Kunden ausgeliefert
+*** Starke Mitarbeit des Kunden
+*** Übersicht aller User Stories im Product Backlog
+*** zeitliche Zielsetzungen mittels Sprints
+
+---
+
+* Qualität: sehr allgemein formuliert -> ist das, was der Kunde wünscht
+
+---
+
+* Konzept: BDD
+** aus der sicht des Kunden werden die Tests erstellt
+** die Tests werden sprachneutral (i.S.v. Programmiersprachen) als Gherkin-files erstellt (feature-Files)
+** Karate ist das Testframework, welches die Tests ausführt
+** Karate wird von jUnit Tests (also von Java) aufgerufen
+
+=== Karate
+
+image:karate-overview.png[]
+
+.Karate-Statement
+image:https://raw.githubusercontent.com/intuit/karate/master/karate-demo/src/test/resources/karate-hello-world.jpg[]
+
+https://github.com/intuit/karate
+
+.Erstellen des Projekts
+----
+mvn io.quarkus:quarkus-maven-plugin:1.9.2.Final:create \
+    -DprojectGroupId=at.htl \
+    -DprojectArtifactId=quarkus-karate-demo \
+    -DclassName="at.htl.karate.boundary.GreetingResource" \
+    -Dpath="/hello"
+----
+
+.pom.xml
+[source,xml]
+----
+    <dependency>
+      <groupId>com.intuit.karate</groupId>
+      <artifactId>karate-apache</artifactId>
+      <version>0.9.6</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.intuit.karate</groupId>
+      <artifactId>karate-junit5</artifactId>
+      <version>0.9.6</version>
+      <scope>test</scope>
+    </dependency>
+    ...
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/java</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </testResource>
+    </testResources>
+    <plugins>
+    ...
+    </plugins>
+  ...
+  </build>
+----
+
+.src/test/java/karate-config.js
+[source,javascript]
+----
+function fn() {
+    var env = karate.env; // get java system property 'karate.env'
+    karate.log('karate.env system property was:', env);
+    if (!env) {
+        env = 'dev'; // a custom 'intelligent' default
+    }
+    var config = { // base config JSON
+        baseUrl: 'http://localhost:8081'
+    };
+    // don't waste time waiting for a connection or if servers don't respond within 5 seconds
+    karate.configure('connectTimeout', 5000);
+    karate.configure('readTimeout', 5000);
+    return config;
+}
+----
+
+
+=== Aufgabe Karate
+
+* Erstelle einen Endpoint mit einem PathParameter
+** localhost:8080/hello/susi ergibt einen Rückgabewert "hello susi"
+** einmal als plain text, einmal als xml und einmal als json
+* Erstellen einer Entität Vehicle mit brand und type
+** Create eines Vehicles über Endpoint
+** Das Vehicle ist ein File
+** siehe dazu https://github.com/htl-leonding-college/quarkus-karate-testcontainers-demo
 
 
 
+== 2021-01-15
+
+=== Exkurs JPA Panáche
+
+=== Unterschied Spezifikation - Implementierung
+
+==== Spezifikation
+zB. JPA oder Jakarta Persistence
+
+==== Implementierung
+zB EclipseLink, Hibernate
 
 
+=== Begriffe
+
+* Surrogat ... Ersatz
+* Ist ein Ersatz für einen natürlichen Schlüssel in einer relationalen DB.
+* Ist ein künstlicher Schlüssel (Primary Key).
+** Meist eine lfd. Nr., die von der DB hochgezählt wird.
 
 
+* Begriffspaar transient/persistent
+** transient ... flüchtig
+** persistent ... dauerhaft (die Daten überleben den Prozess ihrer Entstehung)
 
+* custom (im Gegensatz zu vorgegeben/vordefiniert/standardisiert)
+** custom ... maßgeschneidert, der Benutzer kann sich etwas eigenes "bauen"
 
-
-
-
-
+* Referenz
+** Verweis auf etwas
+** Beispiele
+*** Referenzvariable verweist auf ein Objekt (refernziert ein Objekt)
+*** Kundenreferenz verweist auf (hoffentlich zufriedene) Kunden meines Produkts
+*** Referenzen in meinem Lebenslauf: verweisen auf vorhergegangene Arbeitgeber (die hoffentlich auch zufrieden waren)
