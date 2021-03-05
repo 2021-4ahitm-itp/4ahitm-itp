@@ -625,3 +625,194 @@ function fn() {
 * Projektarbeit
 ** Feedback für Leonie
 ** TNMS Helfenberg
+
+
+== 2021-01-22
+
+=== Erstellen von Unit-Tests
+
+==== Was teste ich
+* Unit-Tests sind NICHT (oder nur teilweise) das testen von Gettern und Settern.
+** Es ist nicht sinnvoll, von der IDE generierte Getter und Setter zu testen.
+* Zu testen ist:
+** Das Zusammenspiel der Klassen (die Assoziationen, Vererbungs- und sonstigen Beziehungen)
+** Eigene MEthoden, die zusätzlich zu Konstruktoren, Gettewrn und Settern erstellt wurden
+** Collections und der Zugriff darauf
+
+=== Wie gehe ich beim Testen vor
+
+* Man geht von den Anwendungsfällen aus:
+
+** Bsp: Umfragetool QuestionZ
+*** US1: Der Befrager erstellt einen Fragebogen
+*** US2: Der Befrager erstellt eine Umfrage
+*** US3: Die Befragten nehmen an einer Umfrage teil
+*** Us4: Der Befrager wertet die beantworteten Fragebögen aus
+
+* Man erstellt für jeden Anwendungsfall eigene Tests (ein oder mehrere, zB Sonderfälle)
+** ev. ohne Persistierung, die Datenbank aber sehr wohl verwendet.
+** es geht um das Ergebnis
+*** zB bei US1: Es steht ein Fragebogen zur Verfügung (zB mit 6 Fragen und allen Fragetypen), in der Datenbank (oder nur im Hauptspeicher als Java-Objekte)
+*** zB bei US2: Eine fertig erstellte und konfigurierte Umfrage (Datum, TANS sind gerneriert, ...), in der Datenbank (oder nur im Hauptspeicher als Java-Objekte)
+*** zB bei US3: zB fünf ausgefüllte Fragebögen in der Datenbank (oder nur im Hauptspeicher als Java-Objekte)
+*** zB bei US$: Die Auswertung wird in unserem Beispiel nicht in der DB gespeichert. Als werden nur die Summen / Mittelwerte usw auf Korrektheit getestet
+
+=== Ziel des Unit-Tests
+
+* Fehler sollen frühzeitig erkannt werden - speziell im Datenmodell
+** Das Datenmodell ist die Grundlage des gesamten Softwaresystems und Fehler darin ziehen umfangreiche Änderungen bis in die GUI nach sich.
+** Die Abläufe werden in den Tests simuliert.
+** Sind die Ergebnisse dieser getesteten Abläufe in Ordnung beginnt man mit der nächsten Schicht
+** Test-Schichten
+*** Entity-Tests (ev. noch ohne Persistierung)
+*** Repository-Tests
+*** Endpoint-Tests
+*** GUI-Tests (meist der Webanwendung)
+
+
+=== TODO - Kommentar
+
+* In intellij una anderen IDEs gibt es ein eigenes Fenster, in dem alle TODOs aufgelistet werden.
+
+
+=== Vorgehensweise
+
+==== kleine Schritte
+
+* Man versieht nicht alle Klassen mit Persistenzannotationen sondern ...
+* \... man beginnt mit einer Klasse, die man sofort persistiert in einem Unit-Test
+
+==== Repository Pattern verwenden
+
+* siehe Microsoft
+* aggregates verwenden, nicht jede Entity-Klasse hat ein eigenes Repository
+
+
+==== keine unverschlüsselten Credentials (passwords usw) im github speichern
+
+== 2021-03-04
+
+* Erstellen eine Pipeline mit gh-actions
+** Vergleichsprodukt zu gh-actions ist Jenkins, Travis, ...
+** Erstellen von ssh-keys
+** infrastructure-as-code
+** Zweck: Nach dem Pushen der Files in das git-repo wird automatisch
+*** kompiliert
+*** getestet und
+*** deployed (zB auf einen Server kopiert und gestartet)
+
+
+== 2021-03-05
+
+* Was soll der (begeisterte) ITP-Schüler und auch -in immer können:
+
+** git (Theorie + Praxis)
+*** Versionsnummern (Aufbau)
+
+** github-actions (Theorie)
+*** ssh-keys
+*** Erstellen einer Pipeline
+
+** Vorgehensweise beim Durchführen von Projekten (Theorie und Praxis)
+*** Scrum vs klassische Vorgehensweise
+*** Strukturierung eines Projekt in github
+*** V-Modell
+
+** Testen
+*** Welche Arten von Tests
+*** Welche Test-Frameworks werden wie angewendet (Theorie und Praxis)
+
+** UML-Diagramme
+*** CLD und Objektdiagramm
+*** ACD
+*** State Diagram
+*** Deployment Diagram
+*** Kompositionsstrukturdiagramm
+
+----
+wird nicht geprüft, muss vorher noch gemacht werden
+** Virtualisierung mit Docker (Theorie)
+*** docker-compose "Jeder Dienst ein eigener Container"
+----
+
+** Build-Tools
+*** Zweck
+*** Funktionalität
+*** Varianten: v.a. maven, gradle, npm, ...
+
+
+
+=== Organisation von Projekten mit github und gh-projects
+
+* Problem:
+** Die bevorzugte Vorgehensweise ist *Scrum*
+** In github gibt es allerdings "nur" *Kanban*
+*** keine Sprints sondern Meilensteine
+*** keine User Stories und Tasks, nur Issues die in gh-project (vglbar mit Sprint Backlog) dargestellt werden können
+*** User Stories sind Issues mit einem Tag "User Story"
+
+* Wie werden Issues sonst noch verwendet?
+** Die Tasks werden in gh-Projects je nach Ihrem Zustand (open/in progress/to review/done) dargestellt
+** Gesprächsprotokolle werden mit m-o-m (Minutes of Meeting) gekennzeichnet
+** Bug-Reports werden mit "bug" gekennzeichnet und als Task in das gh-projekt eingetragen
+
+* Ganz wichtig ist die konkrete Zuordnung von Aufgaben zu Teammitgliedern
+** Ein Issue (Task, Bug, ...) soll nur einem Teammitglied zugeordnet sein (es kann Ausnahmen geben)
+** Es soll jedem Task (und auch Bugfix, ...) eine Fertigstellungsdatum zugeordnet werden durch die Verwendung von Meilensteinen
+** Die Aufgabe die im Task beschrieben ist, soll klar lösbar, kontrollierbar und testbar sein
+*** der Projektkoordinator (Projektleiter) soll den Teammitgliedern entsprechend ihrer Fähigkeiten die Aufgaben zuordnen.
+*** die Erfüllung dieser Aufgaben ist Teil der Bewertung
+*** Gibt es Aufgaben, die nicht programmiert werden zB Marktanalyse, Entwurfsentscheidung, ... dann muss es ebenfalls ein Ergebnis geben zB einen (kurzen) Bericht darüber
+*** Die einzelnen Commits sind durch `#<no des issues>` den Issues (Tasks, Bugfixes usw) zuzuordnen
+*** Die User Stories können nummeriert werden zB "US-01 Eintragung einer Fahrt"
+*** Somit können die Tasks den User Stories zugeordnet werden, zB "Repositories erstellen (US-01)"
+*** Eine Alternative zu dieser Strukturierung:
+**** Die Meilensteine erhalten dieselben Bezeichnungen wie die User-Stories
+**** Jeder Task ist dem entsprechenden Meilenstein zugeordnet (so ersieht man ebenfalls die Zugehörigkeit zu einer User Story)
++
+IMPORTANT: Jeder Meilenstein hat ein Datum
+
+*** Grundsätzlich ist das System nach Beendigung eines Tasks lauffähig (IMMER)
+*** Wenn ein Teammitglied eine neue Aufgabe zugewiesen bekommt zB eine neue Funktion, so ist ein Feature-Branch zu erstellen
+**** dh der Main Branch ist *immer* lauffähig
+**** nach Fertigstellung des neuen Features gibt es ein Code Review mit anschließendem Merge
+**** oder es gibt einen Pull-Request mit anschließendem Review und ev. Merge
+
+
+=== Beispiel: Wie kann man ein Projekt zerlegen
+
+==== Überblick verschaffen
+
+* Zb Erstellen eines UCDs
+
+[plantuml,ucd-rudern,png]
+----
+@startuml
+left to right direction
+actor user
+rectangle ruderxxx {
+  user -- (Fahrt eintragen)
+  user -- (Route eintragen)
+  user -- (Auswertung)
+}
+@enduml
+----
+
+* Oft dient die Strukturierung mit Use-Case-Diagrammen als Anhaltspunkt für Meilensteine.
+* Hier könnte man zB drei Meilensteine definieren
+** Fahrt eintragen
+** Route eintragen
+** Auswertung
+* zusätzliche Meilensteine könnten sein
+** Vorbereiten der Infrastruktur (Server aufsetzen)
+** Prototyps für Eintragen des Standorts per GPS
+
+* Es sind alle Meilensteine zu erstellen und mit (geschätzten) Fertigstellungsterminen zu versehen.
+** Der Detaillierungsgrad (ob die Tasks schon für den jeweiligen Meilenstein erstellt wurden) nimmt bei späteren Meilenstainen ab.
+* Unterteilt man in Frontend und Backend als getrennte Systeme, so ist es sinnvoll die Schnittstelle zwischen diesen beiden System zu definieren.
+* Anschließend kann man für jedes System die Funktionalität auflisten und abarbeiten
+
+* Frage: was ist der Unterschied von Use-Case (Anwendungsfälle) zu User Stories
+** Beide definieren Anforderungen / Funktionalitäten aus Kundensicht
+** Use-Cases sind etwas größer (vllt. kann man sagen, dass ein UC aus mehreren User-Stories bestehen kann)
+** User Stories sind etwas detaillierter, da aufgrund dieser programmiert werden muss (mit einem konkreten Ergebnis)
