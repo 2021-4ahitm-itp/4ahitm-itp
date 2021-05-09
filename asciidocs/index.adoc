@@ -849,7 +849,14 @@ image:docker-compose.png[]
 
 
 
+== 2021-05-07
 
+=== Use Case vs. User Story
+image:usecase-vs-userstoriy.png[]
+
+=== Normalformen
+
+image:normalformen.png[]
 
 
 
