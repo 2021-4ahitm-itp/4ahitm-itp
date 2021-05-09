@@ -738,6 +738,8 @@ wird nicht geprüft, muss vorher noch gemacht werden
 ** Build-Tools
 *** Zweck
 *** Funktionalität
+**** Einbinden und automatischer Download von Libraries
+**** Einbinden von Plugins
 *** Varianten: v.a. maven, gradle, npm, ...
 
 
@@ -816,3 +818,48 @@ rectangle ruderxxx {
 ** Beide definieren Anforderungen / Funktionalitäten aus Kundensicht
 ** Use-Cases sind etwas größer (vllt. kann man sagen, dass ein UC aus mehreren User-Stories bestehen kann)
 ** User Stories sind etwas detaillierter, da aufgrund dieser programmiert werden muss (mit einem konkreten Ergebnis)
+
+
+== 2021-03-XX
+
+IMPORTANT: Vorstellen der Verschlüsselung von Stefnotch zum einpflegen von Secrets in github -> Jonas Dorfinger
+
+
+== 2021-03-26 (Freitag)
+
+* Es wurde festgestellt, dass noch Defizite im Bereich Docker und docker-compose bestehen
+* -> nach den Osterferien wird Docker durchgearbeitet
+* im Rahmen des Deployments per gh-actions auf eine Oracle VM
+
+== 2021-04-30
+
+=== Überblick Dockerfile-image-Container
+image:docker-dockerfile-image-container.png[]
+
+=== Bind Mount vs. Volume
+image:docker-bindmount-vs-volume.png[]
+
+
+=== Start eines nginx-Docker-Containers
+image:docker-starten-nginx.png[]
+
+
+=== Docker-Compose
+image:docker-compose.png[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
