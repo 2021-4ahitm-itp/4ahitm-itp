@@ -1,0 +1,173 @@
+= Pflichtenheft <Projektbezeichnung>
+// Metadata
+firstname lastname <mail@mail-server>
+1.0, dd-mm-yyyy: Some notes
+
+// Settings
+:source-highlighter: coderay
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+// Refs:
+:imagesdir: images
+:sourcedir-code: src/main/java/at/htl/jdbcprimer
+:sourcedir-test: src/test/java/at/htl/jdbcprimer
+:toc:
+
+Version: {revnumber} +
+Version Date: {revdate} +
+Version Notes: {revmark} +
+Author: {Author} {email}
+
+
+
+== Beschreibung der Ausgangssituation
+
+Beschreibung der Organisation
+
+== Istzustand
+
+* Beschreibung des Istzustandes der Abteilung, in der das neue System eingeführt wird
+
+* falls notwendig: DOM des Istzustandes (Fachbereichsobjekte -> Klassendiagramm ohne techn. Klassen)
+* Übersichtsdiagramme
+* usw.
+
+=== Beschreibung der Geschäftsprozesse
+
+Aktivitätsdiagramm des Geschäftsprozesses 1 +
+Aktivitätsdiagramm des Geschäftsprozesses 2 +
+...
+
+== Problemstellung
+
+TIP: Beschreibung der Probleme die es beim Istzustand gibt.
+
+== Aufgabenstellung
+
+TIP: Die Aufgabenstellung beschreibt das Ergebnis (die Leistung) und wird in Funktionale und Nicht-Funktionale anforderungen unterteilt.
+
+=== Funktionale Anforderungen
+
+==== Anwendungsfalldiagramm (Use-Case-Diagram)
+
+TIP: Aufgabe dieses Abschnittes ist es, einen Überblick über die Produktfunktionen zu geben.
+
+==== Use-Case 1
+
+===== Charakterisierende Informationen Use-Case 1
+
+[cols=2]
+|===
+| Übergeordneter elementarer Geschäftsprozess:
+| Prozess-ID: <elementarer Geschäftsprozess (verweist auf Abschnitt „2.1.5 Beschreibung der Geschäftsprozesse“)>
+
+| Ziel des Use Cases:
+| <Ausführliche Beschreibung des Zieles des Use Cases>
+
+| Umgebende Systemgrenze:
+| <System, das betrachtet wird (Systemgrenze im Diagramm des vorigen Abschnittes)>
+
+| Vorbedingung:
+| <Was muss garantiert werden, damit der Use Case durchgeführt werden kann?>
+
+| Nachbedingung bei erfolgreicher Ausführung:
+| <Was muss sichergestellt werden für eine erfolgreiche Ausführung des Use Case>
+
+| Beschreibung:
+a|
+* Erste Aktion
+* Zweite Aktion
+* ...
+
+| Beteiligte Nutzer:
+| <Rollenname>: Beschreibung des Nutzers, der mit dem System interagiert. Nutzer können auch andere Systeme sein.>
+
+| Auslösendes Ereignis:
+| <Handlung oder Zeitpunkt, die Use Case auslöst bzw. zu dem er beginnt>
+|===
+
+===== GUI für den Aufruf des Use-Case 1
+
+[plantuml,gui,png]
+----
+@startsalt
+{
+  Just plain text
+  [This is my button]
+  ()  Unchecked radio
+  (X) Checked radio
+  []  Unchecked box
+  [X] Checked box
+  "Enter text here   "
+  ^This is a droplist^
+}
+@endsalt
+----
+
+==== Use-Case 2
+
+...
+
+TIP: Dieser Abschnitt muß als Template für jeden Use Case aus dem vorigen Abschnitt wiederholt werden.
+
+=== Nicht-funktionale Anforderungen
+
+Typen von Produktcharakteristiken
+
+Typ USE: 		Benutzbarkeitsanforderung
+
+Die in Abschnitt 1 beschriebene Zielgruppe liegt diesen Anforderungen zugrunde. Wie muß die Software beschaffen sein, damit diese Zielgruppe gerne damit arbeitet?
+Beispiel: Die Software soll flexibel für unterschiedliche Arbeitsweisen einsetzbar sein.
+ODER
+Die Software soll dem Erscheinungsbild anderer Produkte des Herstellers
+entsprechen.
+
+Typ EFFIZIENZ: 	Effizienzanforderung
+
+Hier geht es sowohl um Laufzeit- als auch um Speichereffizienz. Was wird unter dem sparsamen Einsatz dieser Ressourcen verstanden?
+Beispiel: Die Berechnung darf nicht länger als 0,25 Sekunden dauern.
+
+Typ PFLEGE:	Wartbarkeits- und Portierbarkeitsanforderung
+
+Welcher Grad an Änderbarkeit wird gefordert? Hier werden, soweit wie möglich, kommende Anpassungen und Erweiterungen vorhergesehen.
+Beispiel: Das Produkt soll später auch in englischer Sprache verfügbar sein.
+
+Typ SICHER:	Sicherheitsanforderung
+
+Zu den Sicherheitsanforderungen gehören die Aspekte Vertraulichkeit, Datenintegrität und Verfügbarkeit. Wie sehr müssen die Daten vor dem Zugriff durch Dritte geschützt werden? Ist es entscheidend, die Korrektheit der erfassten Daten und ihre Konsistenz zu gewährleisten? Dürfen Systemausfälle vorkommen?
+Beispiel: Das System muss gewährleisten, dass Daten nie verändert werden können.
+
+Typ LEGAL:		Gesetzliche Anforderung
+Welche Standards und Gesetze müssen beachtet werden?
+Beispiel: Das Produkt muss die ISO 9000 Norm erfüllen.
+
+== Zielsetzung
+
+TIP: Beschreibung der Leistungswirkung
+
+== Mengengerüst
+TIP: Hier sind die Anzahl der erwarteten Stammdaten sowie der Geschäftsfälle und die daraus resultierenden Zeilen in den Tabellen anzugeben. Diese Angaben sind wichtig, um einerseits die benötigte Speicherform (z.B. XML-Datei oder Datenbank) bzw. die geeignete Datenbank auswählen zu können. Auch können von der Anzahl der Geschäftsfälle besondere Anforderungen an das zu entwickelnde System abgeleitet werden (z.B. eine sehr effizient zu bedienende UI, wenn sehr viele Daten zu bearbeiten sind).
+
+== Rahmenbedingungen
+
+* Was gibt der Kunde vor
+** zB Programmiersprache
+** Hardware
+
+== Schnittstellenübersicht
+
+* Zur Darstellung der Zusammenhänge zwischen dem System und seiner Umgebung wird eine Schnittstellenübersicht erstellt.
+Ausgehend vom System werden Schnittstellen
+** zum Anwender,
+** zu den Unterstützungssystemen,
+** zur Logistik und
+** zu Nachbarsystemen identifiziert und in geeigneter Form dokumentiert.
+
+== Lieferumfang
+
+* Was bekommt der Kunde
+
+== Abnahmekriterien
+
+* "Was muss erfüllt sein, damit das Projekt fertig ist"
+* * Grundlage für Testszenarien
